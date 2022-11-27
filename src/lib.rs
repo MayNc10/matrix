@@ -141,10 +141,6 @@ Matrix<{N - 1}, {N - 1}> : Deteriminant,
     }
 }
 
-pub fn mul_row(r: &[f64], scale: f64, new_r: &[f64]) {
-
-}
-
 impl<const N: usize, const M: usize> Matrix<N, M> {
     pub fn swap(&mut self, mut r1: usize, mut r2: usize) {
         if r1 == r2 {
@@ -214,7 +210,11 @@ impl<const N: usize, const M: usize> Matrix<N, M> {
             for j in 0..N {
                 if j != r {
                     //Subtract M[j, lead] multiplied by row r from row j
-                    self.sub_row(j, )
+                    let mut r2 = self[r].to_vec();
+                    for item in &mut r2 {
+                        (*item) *= self[(j, lead)];
+                    }
+                    self.sub_row(j, r2.as_slice().try_into().unwrap());
                 }
             }
             lead += 1;

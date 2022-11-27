@@ -35,4 +35,19 @@ fn det3x3() {
     mat = Matrix::new([[5.0, 3.0, 4.0], [1.0, 2.0, 6.0], [9.0, 7.0, 8.0]]);
     assert_eq!(mat.det(), -36.0);
 }
+#[test]
+fn rref() {
+    let mut mat = Matrix::new([[1.0, 1.0, 1.0, 6.0], [1.0, 2.0, 3.0, 14.0], 
+        [1.0, 4.0, 7.0, 30.0]]);
+    let answer = Matrix::new([[1.0, 0.0, -1.0, -2.0], [0.0, 1.0, 2.0, 8.0], 
+        [0.0, 0.0, 0.0, 0.0]]);
+    mat.to_rref();
+    assert_eq!(mat, answer);
 
+    let mut mat = Matrix::new([[1.0,-1.0, -2.0, 4.0], [2.0, -1.0, -1.0, 2.0], 
+        [2.0, 1.0, 4.0, 16.0]]);
+    let answer = Matrix::new([[1.0, 0.0, 0.0, 24.0], [0.0, 1.0, 0.0, 72.0], 
+        [0.0, 0.0, 1.0, -26.0]]);
+    mat.to_rref();
+    assert_eq!(mat, answer);
+}
