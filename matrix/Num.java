@@ -1,3 +1,9 @@
+// Num
+// May Neelon
+// 
+// A class representing a generic number
+// I agree to abide by the Acamedic Honesty Agreement
+
 package matrix;
 
 /**

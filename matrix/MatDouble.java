@@ -1,6 +1,13 @@
+// MatDouble
+// May Neelon
+// 
+// A class representing a generic implementation of a double
+// I agree to abide by the Acamedic Honesty Agreement
+
 package matrix;
 
 public class MatDouble implements Num {
+    // The actual wrapped double
     private double inner;
     public MatDouble(double d) {
         inner = d;
@@ -23,7 +30,7 @@ public class MatDouble implements Num {
     }
 
     public void invertThis() {
-        inner *= -1.0;
+        inner = 1 / inner;
     }
     public void makeThisOne() {
         inner = 1.0;
